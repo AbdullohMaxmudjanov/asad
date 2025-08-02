@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar Toggle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1587202372775-a7d6a3d4a5a0?auto=format&fit=crop&w=1350&q=80');">
+
+  <!-- Menu Toggle Button -->
+  <button id="menuBtn" class="text-white text-3xl m-5">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="w-64 h-screen bg-black/50 backdrop-blur-md text-white fixed top-0 left-0 p-5 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 z-50">
+
+    <div>
+      <!-- Logo and Close Button -->
+      <div class="flex justify-between items-center mb-6">
+        <h1 class="text-xl font-bold">CodingLab</h1>
+        <i id="closeBtn" class="fas fa-times cursor-pointer text-xl"></i>
+      </div>
+
+      <!-- Menu Links -->
+      <ul class="space-y-4 text-sm">
+        <li onclick="alert('Dashboard bosildi!')" class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-th-large"></i> Dashboard</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-link"></i> Shortcuts</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-bars"></i> Overview</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-calendar-alt"></i> Events</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-question-circle"></i> About</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-sliders-h"></i> Services</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-phone-alt"></i> Contact</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-gray-300"><i class="fas fa-comment-dots"></i> Feedback</li>
+      </ul>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex justify-between items-center text-gray-300 text-lg mt-6">
+      <i class="fab fa-facebook-f cursor-pointer hover:text-white"></i>
+      <i class="fab fa-twitter cursor-pointer hover:text-white"></i>
+      <i class="fab fa-instagram cursor-pointer hover:text-white"></i>
+      <i class="fab fa-youtube cursor-pointer hover:text-white"></i>
+    </div>
+  </div>
+
+  <!-- JS: Toggle Sidebar -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    menuBtn.onclick = () => {
+      sidebar.classList.remove("-translate-x-full");
+    };
+
+    closeBtn.onclick = () => {
+      sidebar.classList.add("-translate-x-full");
+    };
+  </script>
+
+</body>
+</html>

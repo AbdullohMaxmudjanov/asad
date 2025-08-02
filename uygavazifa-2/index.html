@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flip Card with CVV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+    .card {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .card-face {
+      backface-visibility: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+
+  <!-- Card Flip Container -->
+  <div class="card-container w-80 h-48 perspective relative">
+    <div class="card w-full h-full relative">
+      
+      <!-- Front Side -->
+      <div class="card-face absolute w-full h-full bg-gradient-to-br from-gray-700 to-gray-600 text-white rounded-xl p-5 shadow-lg">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center space-x-1">
+            <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+            <div class="w-4 h-4 bg-yellow-400 rounded-full -ml-2"></div>
+            <span class="text-sm font-semibold ml-2">Master Card</span>
+          </div>
+          <div class="w-10 h-7 bg-yellow-300 rounded-sm"></div>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-300">Card Number</p>
+          <p class="text-lg font-medium tracking-wider">8050 5040 2030 3020</p>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span>Prem Kumar Shahi</span>
+          <div class="text-right">
+            <p class="text-xs text-gray-300">Valid Thru</p>
+            <p>05/28</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-face card-back absolute w-full h-full bg-gray-800 text-white rounded-xl p-5 shadow-lg">
+        <div class="mb-3">
+          <p class="text-sm">Security Code (CVV)</p>
+          <input type="password" value="123" class="mt-1 px-3 py-1 w-full rounded bg-gray-700 text-white outline-none focus:ring-2 focus:ring-purple-500" />
+        </div>
+        <p class="text-xs text-gray-400 mt-6">Hover the card to flip back</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

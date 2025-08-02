@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic Card Hover CVV</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #121212;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .card {
+            width: 400px;
+            height: 250px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .inner-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            border-radius: 25px;
+        }
+
+        .card:hover .inner-card {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            color: #fff;
+        }
+
+        .front {
+            background: linear-gradient(135deg, #ff69b4, #8e44ad);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .front h2 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        .front .chip {
+            width: 60px;
+            height: 40px;
+            background: gold;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .front .number, .front .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .back {
+            background: linear-gradient(135deg, #8e44ad, #ff69b4);
+            transform: rotateY(180deg);
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back .stripe {
+            background: #000;
+            height: 50px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .back .cvv-input {
+            align-self: flex-end;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .back label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .back input {
+            width: 100px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: #000;
+        }
+
+        .back .info {
+            margin-top: auto;
+            font-size: 12px;
+            opacity: 0.8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="inner-card">
+            <div class="front">
+                <h2>IPATEKA BANK</h2>
+                <div class="chip"></div>
+                <div class="number">1234 5678 9012 3456</div>
+                <div class="name">Maxmudjanov Abdullox</div>
+            </div>
+            <div class="back">
+                <div class="stripe"></div>
+                <div class="cvv-input">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" maxlength="20" placeholder="123">
+                </div>
+                <div class="info">Amal qilish muddati: 12/30<br>MUSHTIROQ CARD</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
